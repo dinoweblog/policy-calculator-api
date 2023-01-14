@@ -4,7 +4,7 @@ const router = express.Router();
 
 const Policy = require("../models/policy.model");
 
-router.post("/policy-calc", async (req, res) => {
+router.post("", async (req, res) => {
   try {
     let user = await Policy.create(req.body);
 
@@ -14,7 +14,7 @@ router.post("/policy-calc", async (req, res) => {
   }
 });
 
-router.get("/policy-calc", async (req, res) => {
+router.get("", async (req, res) => {
   try {
     let user = await Policy.find().lean().exec();
 
@@ -23,3 +23,5 @@ router.get("/policy-calc", async (req, res) => {
     return res.status(500).send({ message: err.message });
   }
 });
+
+module.exports = router;
