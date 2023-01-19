@@ -8,7 +8,7 @@ router.post("", async (req, res) => {
   try {
     await Policy.create(req.body);
 
-    return res.statusText("Successfully added!");
+    return res.send({ message: "Successfully added!" });
   } catch (err) {
     return res.status(500).send({ message: err.message });
   }
